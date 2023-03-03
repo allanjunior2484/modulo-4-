@@ -1,0 +1,7 @@
+CREATE PROCEDURE sp_quantidade_produtos_comprados (@data_compra DATE)
+AS
+BEGIN
+  SELECT COUNT(*) AS 'Quantidade de Produtos Comprados'
+  FROM Compra
+  WHERE DataCompra = @data_compra;
+END
