@@ -1,0 +1,7 @@
+Primeira Forma Normal (1FN): esta forma normal exige que todas as tabelas possuam valores atômicos, ou seja, que não existam valores compostos ou multivalorados. Isso significa que cada valor em uma coluna deve ser indivisível e único, e cada registro em uma tabela deve ser único e identificável por uma chave primária.
+
+Segunda Forma Normal (2FN): esta forma normal exige que todas as tabelas estejam na 1FN e que não existam dependências parciais na chave primária. Isso significa que cada coluna em uma tabela deve depender completamente da chave primária e não de apenas uma parte dela.
+
+Terceira Forma Normal (3FN): esta forma normal exige que todas as tabelas estejam na 2FN e que não existam dependências transitivas entre as colunas. Isso significa que não deve haver colunas que dependam de outras colunas que não sejam a chave primária.
+
+Forma Normal de Boyce-Codd (FNBC): esta forma normal é uma extensão da 3FN e exige que cada dependência funcional em uma tabela seja uma dependência funcional de chave única, ou seja, que todas as outras dependências sejam determinadas pela chave primária.
