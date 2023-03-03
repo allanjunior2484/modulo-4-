@@ -1,0 +1,13 @@
+CREATE FUNCTION fn_total_clientes_cadastrados (@data DATE)
+RETURNS INT
+AS
+BEGIN
+  DECLARE @total INT;
+  SET @total = (
+    SELECT COUNT(*) 
+    FROM Cliente 
+    WHERE DataCadastro = @data
+  );
+  RETURN @total;
+END
+
