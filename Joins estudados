@@ -1,0 +1,59 @@
+
+CREATE TABLE Produto (
+  ID INT PRIMARY KEY,
+  Nome VARCHAR(50),
+  Preco DECIMAL(10,2),
+  FabricanteID INT,
+  FOREIGN KEY (FabricanteID) REFERENCES Fabricante(ID)
+);
+
+CREATE TABLE Fabricante (
+  ID INT PRIMARY KEY,
+  Nome VARCHAR(50),
+  Pais VARCHAR(50)
+);
+
+CREATE TABLE Pedido (
+  ID INT PRIMARY KEY,
+  DataCompra DATE,
+  ClienteID INT,
+  Status VARCHAR(20),
+  FOREIGN KEY (ClienteID) REFERENCES Cliente(ID)
+);
+
+CREATE TABLE Cliente (
+  ID INT PRIMARY KEY,
+  Nome VARCHAR(50),
+  Email VARCHAR(50)
+);
+
+CREATE TABLE ItemPedido (
+  ID INT PRIMARY KEY,
+  ProdutoID INT,
+  PedidoID INT,
+  Quantidade INT,
+  PrecoUnitario DECIMAL(10,2),
+  FOREIGN KEY (ProdutoID) REFERENCES Produto(ID),
+  FOREIGN KEY (PedidoID) REFERENCES Pedido(ID)
+);
+
+
+SELECT Produto.Nome, Fabricante.Nome
+FROM Produto
+INNER JOIN Fabricante ON Produto.FabricanteID = Fabricante.ID;
+
+
+SELECT Pedido.ID, Cliente.Nome
+FROM Pedido
+LEFT JOIN Cliente ON Pedido.ClienteID = Cliente.ID;
+
+
+SELECT Cliente.Nome, Pedido.ID
+FROM Cliente
+RIGHT JOIN Pedido ON Cliente.ID = Pedido.ClienteID;
+
+
+SELECT Produto.Nome, Pedido.ID
+FROM Produto
+FULL OUTER JOIN ItemPedido ON Produto.ID = ItemPedido.ProdutoID
+FULL OUTER JOIN Pedido ON ItemPedido.PedidoID = Pedido.ID;
