@@ -1,0 +1,8 @@
+
+Análise de requisitos: identificação e documentação das necessidades do negócio e dos usuários para definir as funcionalidades do banco de dados.
+
+Projeto conceitual: criação de um modelo conceitual que representa os objetos do mundo real e suas relações, utilizando uma linguagem de modelagem como o diagrama de entidade e relacionamento (ER).
+
+Projeto lógico: transformação do modelo conceitual em um modelo lógico, que representa como os dados serão armazenados e acessados pelo sistema de gerenciamento de banco de dados (SGBD).
+
+Projeto físico: definição de detalhes físicos do banco de dados, como as estruturas de armazenamento, índices e esquemas de segurança.
