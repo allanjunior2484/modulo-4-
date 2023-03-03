@@ -1,0 +1,28 @@
+SELECT * FROM Alunos WHERE Nota > 7.0;
+
+SELECT * FROM Alunos WHERE Ano = 1 AND Nota >= 8.0;
+
+SELECT Nome, Nota FROM Alunos;
+
+CREATE TABLE Professor AS
+SELECT SUBSTR(Nome, 1, INSTR(Nome, ' ')-1) AS PNome, SUBSTR(Nome, INSTR(Nome, ' ')+1) AS UNome FROM Professores;
+
+
+CREATE TABLE Aluno AS
+SELECT SUBSTR(Nome, 1, INSTR(Nome, ' ')-1) AS PNome, SUBSTR(Nome, INSTR(Nome, ' ')+1) AS UNome, Ano, Nota FROM Alunos;
+
+
+SELECT PNome, UNome FROM Aluno
+UNION
+SELECT PNome, UNome FROM Professor;
+
+SELECT PNome, UNome FROM Aluno
+INTERSECT
+SELECT PNome, UNome FROM Professor;
+
+SELECT PNome, UNome FROM Aluno
+EXCEPT
+SELECT PNome, UNome FROM Professor;
+
+
+
